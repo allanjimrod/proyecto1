@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CapaLogica:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CapaLogica_jar</output-path>
+    <root id="archive" name="CapaLogica.jar">
+      <element id="module-output" name="CapaLogica" />
+      <element id="module-output" name="CapaDatos" />
+      <element id="module-output" name="EntidadesComunes" />
+    </root>
+  </artifact>
+</component>

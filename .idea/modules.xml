@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AllanSoft.iml" filepath="$PROJECT_DIR$/AllanSoft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CapaDatos/CapaDatos.iml" filepath="$PROJECT_DIR$/CapaDatos/CapaDatos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CapaLogica/CapaLogica.iml" filepath="$PROJECT_DIR$/CapaLogica/CapaLogica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EntidadesComunes/EntidadesComunes.iml" filepath="$PROJECT_DIR$/EntidadesComunes/EntidadesComunes.iml" />
+    </modules>
+  </component>
+</project>
