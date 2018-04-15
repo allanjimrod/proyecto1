@@ -1,3 +1,5 @@
+package com.ucenfotec.ac.cr.proyecto1.entidades;
+
 import java.util.Date;
 
 public class Version {

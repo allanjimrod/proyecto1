@@ -1,3 +1,5 @@
+package com.ucenfotec.ac.cr.proyecto1.entidades;
+
 public class Tarea {
     private Integer id; // PK
     private Integer idInstalacion; // FK a Instalacion

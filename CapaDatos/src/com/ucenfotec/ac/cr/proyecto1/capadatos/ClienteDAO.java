@@ -1,3 +1,6 @@
+package com.ucenfotec.ac.cr.proyecto1.capadatos;
+
+import com.ucenfotec.ac.cr.proyecto1.entidades.Cliente;
 import dataAccess.AccesoBD;
 import dataAccess.Conector;
 
@@ -5,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
-
 
 public class ClienteDAO {
     private AccesoBD accesoDB;
@@ -33,7 +35,7 @@ public class ClienteDAO {
     public Set<Cliente> getAllClientes() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM cliente", true);
-            Set<Cliente> clientes = new HashSet<Cliente>();
+            Set<Cliente> clientes = new HashSet<>();
             while(rs.next())
             {
                 Cliente user = extraerClienteDelResultSet(rs);
@@ -62,7 +64,7 @@ public class ClienteDAO {
 
     public boolean actualizarCliente(Cliente cliente) {
         try {
-            String sql = "UPDATE cliente SET" +
+            String sql = "UPDATE Cliente SET" +
                     "nombre = %s, " +
                     "descripcion = %s, " +
                     "razonSocial = %s, " +

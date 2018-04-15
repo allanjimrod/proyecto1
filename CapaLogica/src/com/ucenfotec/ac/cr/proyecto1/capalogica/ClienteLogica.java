@@ -1,3 +1,8 @@
+package com.ucenfotec.ac.cr.proyecto1.capalogica;
+
+import com.ucenfotec.ac.cr.proyecto1.capadatos.ClienteDAO;
+import com.ucenfotec.ac.cr.proyecto1.entidades.Cliente;
+
 import java.util.Set;
 
 public class ClienteLogica {

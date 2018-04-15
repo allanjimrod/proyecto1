@@ -1,3 +1,5 @@
+package com.ucenfotec.ac.cr.proyecto1.entidades;
+
 public class Producto {
     private Integer id; // PK
     private String nombre;

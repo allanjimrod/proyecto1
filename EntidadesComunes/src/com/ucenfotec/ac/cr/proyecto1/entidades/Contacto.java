@@ -1,3 +1,5 @@
+package com.ucenfotec.ac.cr.proyecto1.entidades;
+
 public class Contacto {
     private Integer id; // PK
     private String cedula;
