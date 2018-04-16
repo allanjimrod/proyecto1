@@ -10,9 +10,6 @@ public class Cliente {
     private String direccionExacta;
     private String logo;
     private String telefono;
-    private Integer lider; // FK a Contacto
-    private Integer contactoTI; // FK a Contacto
-
     public Integer getId() {
         return id;
     }
@@ -85,19 +82,18 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public Integer getLider() {
-        return lider;
-    }
-
-    public void setLider(Integer lider) {
-        this.lider = lider;
-    }
-
-    public Integer getContactoTI() {
-        return contactoTI;
-    }
-
-    public void setContactoTI(Integer contactoTI) {
-        this.contactoTI = contactoTI;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", razonSocial='" + razonSocial + '\'' +
+                ", cedulaJuridica='" + cedulaJuridica + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", direccionExacta='" + direccionExacta + '\'' +
+                ", logo='" + logo + '\'' +
+                ", telefono='" + telefono + '\'' +
+                '}';
     }
 }

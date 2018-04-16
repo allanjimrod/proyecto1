@@ -14,7 +14,7 @@ public class VersionDAO {
 
     public VersionDAO() {
         try {
-            this.accesoDB = Conector.getConector("sqlserver", "");
+            this.accesoDB = Conector.getConector("com.microsoft.sqlserver.jdbc.SQLServerDriver", "jdbc:sqlserver://;database=proyecto_progra;integratedSecurity=true;");
         } catch (Exception e) {
             e.printStackTrace();
         }

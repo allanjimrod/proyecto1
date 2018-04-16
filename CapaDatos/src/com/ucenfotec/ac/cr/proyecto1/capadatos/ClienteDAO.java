@@ -14,14 +14,14 @@ public class ClienteDAO {
 
     public ClienteDAO() {
         try {
-            this.accesoDB = Conector.getConector("sqlserver", "");
+            this.accesoDB = Conector.getConector("com.microsoft.sqlserver.jdbc.SQLServerDriver", "jdbc:sqlserver://;database=proyecto_progra;integratedSecurity=true;");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public Cliente getCliente(int id) {
+    public Cliente getCliente(int identificacion) {
         try {
-            ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM cliente WHERE id=" + id, true);
+            ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Cliente WHERE identificacion=" + identificacion, true);
             if(rs.next())
             {
                 return extraerClienteDelResultSet(rs);
@@ -34,7 +34,7 @@ public class ClienteDAO {
 
     public Set<Cliente> getAllClientes() {
         try {
-            ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM cliente", true);
+            ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Cliente", true);
             Set<Cliente> clientes = new HashSet<>();
             while(rs.next())
             {
@@ -73,8 +73,6 @@ public class ClienteDAO {
                     "direccionExacta = %s, " +
                     "logo = %s, " +
                     "telefono = %s " +
-                    "lider = %d " +
-                    "contactoTI = %d " +
                     "WHERE id = %d";
             sql = String.format(sql,
                     cliente.getNombre(),
@@ -85,8 +83,6 @@ public class ClienteDAO {
                     cliente.getDireccionExacta(),
                     cliente.getLogo(),
                     cliente.getTelefono(),
-                    cliente.getLider(),
-                    cliente.getContactoTI(),
                     cliente.getId()
             );
 
@@ -121,8 +117,6 @@ public class ClienteDAO {
         user.setDireccionExacta( rs.getString("direccionExacta") );
         user.setLogo( rs.getString("logo") );
         user.setTelefono( rs.getString("telefono") );
-        user.setLider( rs.getInt("lider") );
-        user.setContactoTI( rs.getInt("contactoTI") );
         return user;
     }
 }

@@ -14,7 +14,7 @@ public class InstalacionDAO {
 
     public InstalacionDAO() {
         try {
-            this.accesoDB = Conector.getConector("sqlserver", "");
+            this.accesoDB = Conector.getConector("com.microsoft.sqlserver.jdbc.SQLServerDriver", "jdbc:sqlserver://;database=proyecto_progra;integratedSecurity=true;");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,7 +48,7 @@ public class InstalacionDAO {
         return null;
     }
 
-    public boolean insertarInstlacion(Instalacion instalacion) {
+    public boolean insertarInstalacion(Instalacion instalacion) {
         try {
             String sql = "INSERT INTO Instalacion VALUES (NULL, %s, %s, %s, %s, %s)";
             sql = String.format(sql, instalacion.getIdCliente(), instalacion.getIdVersion(), instalacion.getFechaInstalacion(), instalacion.getEstado(),
