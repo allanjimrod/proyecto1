@@ -3,6 +3,7 @@ package com.ucenfotec.ac.cr.proyecto1.capalogica;
 import com.ucenfotec.ac.cr.proyecto1.capadatos.ContactoDAO;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Contacto;
 
+import java.util.List;
 import java.util.Set;
 
 public class ContactoLogica {
@@ -17,9 +18,9 @@ public class ContactoLogica {
         Contacto contacto=this.capaDatos.getContacto(id);
         return contacto;
     }
-    public Set<Contacto> getAllContactos()
+    public List<Contacto> getAllContactos()
     {
-        Set<Contacto> contactos=this.capaDatos.getAllContactos();
+        List<Contacto> contactos=this.capaDatos.getAllContactos();
         return contactos;
     }
     public boolean insertarContacto(Contacto contacto)

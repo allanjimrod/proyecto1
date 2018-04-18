@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -33,10 +35,10 @@ public class ContactoDAO {
         return null;
     }
 
-    public Set<Contacto> getAllContactos() {
+    public List<Contacto> getAllContactos() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Contacto", true);
-            Set<Contacto> contactos = new HashSet<>();
+            List<Contacto> contactos = new ArrayList<>();
             while(rs.next())
             {
                 Contacto user = extraerContactoDelResultSet(rs);

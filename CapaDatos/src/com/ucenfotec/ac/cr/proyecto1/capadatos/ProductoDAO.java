@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProductoDAO {
@@ -32,10 +34,10 @@ public class ProductoDAO {
         return null;
     }
 
-    public Set<Producto> getAllProductos() {
+    public List<Producto> getAllProductos() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Producto", true);
-            Set<Producto> productos = new HashSet<>();
+            List<Producto> productos = new ArrayList<>();
             while(rs.next())
             {
                 Producto user = extraerProductoDelResultSet(rs);

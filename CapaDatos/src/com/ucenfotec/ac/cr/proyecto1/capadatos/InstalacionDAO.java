@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class InstalacionDAO {
@@ -32,10 +34,10 @@ public class InstalacionDAO {
         return null;
     }
 
-    public Set<Instalacion> getAllInstalaciones() {
+    public List<Instalacion> getAllInstalaciones() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Instalacion", true);
-            Set<Instalacion> instalacion = new HashSet<>();
+            List<Instalacion> instalacion = new ArrayList<>();
             while(rs.next())
             {
                 Instalacion user = extraerInstalacionDelResultSet(rs);

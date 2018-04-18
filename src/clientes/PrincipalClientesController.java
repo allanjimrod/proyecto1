@@ -1,6 +1,7 @@
 package clientes;
 
 import com.jfoenix.controls.JFXButton;
+import com.ucenfotec.ac.cr.proyecto1.capalogica.ClienteLogica;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,14 +28,8 @@ public class PrincipalClientesController {
     public ScrollPane listaClientes;
 
     public void setup(Window window) {
-        List<Cliente> clientes = new ArrayList<>();
-        Cliente temp = null;
-        for (int i=0; i<5; i++) {
-            temp = new Cliente();
-            temp.setNombre("Cliente " + i);
-            temp.setDescripcion("Empresa de software " + i);
-            clientes.add(temp);
-        }
+        ClienteLogica clienteLogica = new ClienteLogica();
+        List<Cliente> clientes = clienteLogica.getAllClientes();
         TableView build = JavaFXComponent.build(clientes, Cliente.class, true, new TableCallback<Cliente>() {
             @Override
             public void handle(Cliente cliente) {

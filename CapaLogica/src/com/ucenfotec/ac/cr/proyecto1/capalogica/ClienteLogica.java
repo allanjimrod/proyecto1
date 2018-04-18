@@ -3,6 +3,7 @@ package com.ucenfotec.ac.cr.proyecto1.capalogica;
 import com.ucenfotec.ac.cr.proyecto1.capadatos.ClienteDAO;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Cliente;
 
+import java.util.List;
 import java.util.Set;
 
 public class ClienteLogica {
@@ -17,8 +18,8 @@ public class ClienteLogica {
         return cliente;
     }
 
-    public Set<Cliente> getAllClientes() {
-        Set<Cliente> clientes = this.capaDatos.getAllClientes();
+    public List<Cliente> getAllClientes() {
+        List<Cliente> clientes = this.capaDatos.getAllClientes();
         return clientes;
     }
 

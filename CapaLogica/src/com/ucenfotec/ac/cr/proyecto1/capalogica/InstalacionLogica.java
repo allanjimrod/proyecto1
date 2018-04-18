@@ -3,6 +3,7 @@ package com.ucenfotec.ac.cr.proyecto1.capalogica;
 import com.ucenfotec.ac.cr.proyecto1.capadatos.InstalacionDAO;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Instalacion;
 
+import java.util.List;
 import java.util.Set;
 
 public class InstalacionLogica {
@@ -17,9 +18,9 @@ public class InstalacionLogica {
         Instalacion instalacion =this.capaDatos.getInstalacion(id);
         return instalacion;
     }
-    public Set<Instalacion> getAllInstalacions()
+    public List<Instalacion> getAllInstalacions()
     {
-        Set<Instalacion> instalacion =this.capaDatos.getAllInstalaciones();
+        List<Instalacion> instalacion =this.capaDatos.getAllInstalaciones();
         return instalacion;
     }
     public boolean insertarInstalacion(Instalacion instalacion)

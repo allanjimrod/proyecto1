@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class VersionDAO {
@@ -32,10 +34,10 @@ public class VersionDAO {
         return null;
     }
 
-    public Set<Version> getAllVersions() {
+    public List<Version> getAllVersions() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Versiones", true);
-            Set<Version> versions = new HashSet<>();
+            List<Version> versions = new ArrayList<>();
             while(rs.next())
             {
                 Version user = extraerVersionDelResultSet(rs);

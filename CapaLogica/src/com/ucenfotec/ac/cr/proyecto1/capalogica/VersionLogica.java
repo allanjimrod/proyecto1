@@ -3,6 +3,7 @@ package com.ucenfotec.ac.cr.proyecto1.capalogica;
 import com.ucenfotec.ac.cr.proyecto1.capadatos.VersionDAO;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Version;
 
+import java.util.List;
 import java.util.Set;
 
 public class VersionLogica {
@@ -14,9 +15,9 @@ public class VersionLogica {
     {
         return this.capaDatos.getVersion(id);
     }
-    public Set getAllVersiones()
+    public List<Version> getAllVersiones()
     {
-        Set<Version> version=this.capaDatos.getAllVersions();
+        List<Version> version=this.capaDatos.getAllVersions();
         return version;
     }
     public boolean insertarVersion(Version version)

@@ -3,6 +3,7 @@ package com.ucenfotec.ac.cr.proyecto1.capalogica;
 import com.ucenfotec.ac.cr.proyecto1.capadatos.TareaDAO;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Tarea;
 
+import java.util.List;
 import java.util.Set;
 
 public class TareaLogica {
@@ -16,9 +17,9 @@ public class TareaLogica {
     {
         return this.capaDatos.getTarea(id);
     }
-    public Set getAllTareas()
+    public List<Tarea> getAllTareas()
     {
-        Set<Tarea>tarea=this.capaDatos.getAllTareas();
+        List<Tarea> tarea=this.capaDatos.getAllTareas();
         return tarea;
     }
     public boolean insertarTarea(Tarea tarea)

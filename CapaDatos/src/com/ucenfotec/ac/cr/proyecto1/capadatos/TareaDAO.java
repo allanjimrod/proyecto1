@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class TareaDAO {
@@ -32,10 +34,10 @@ public class TareaDAO {
         return null;
     }
 
-    public Set<Tarea> getAllTareas() {
+    public List<Tarea> getAllTareas() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Tarea", true);
-            Set<Tarea> tareas = new HashSet<>();
+            List<Tarea> tareas = new ArrayList<>();
             while(rs.next())
             {
                 Tarea user = extraerTareaDelResultSet(rs);

@@ -6,7 +6,9 @@ import dataAccess.Conector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ClienteDAO {
@@ -32,10 +34,10 @@ public class ClienteDAO {
         return null;
     }
 
-    public Set<Cliente> getAllClientes() {
+    public List<Cliente> getAllClientes() {
         try {
             ResultSet rs = this.accesoDB.ejecutarSQL("SELECT * FROM Cliente", true);
-            Set<Cliente> clientes = new HashSet<>();
+            List<Cliente> clientes = new ArrayList<>();
             while(rs.next())
             {
                 Cliente user = extraerClienteDelResultSet(rs);
