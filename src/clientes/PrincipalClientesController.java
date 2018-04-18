@@ -3,6 +3,7 @@ package clientes;
 import com.jfoenix.controls.JFXButton;
 import com.ucenfotec.ac.cr.proyecto1.capalogica.ClienteLogica;
 import com.ucenfotec.ac.cr.proyecto1.entidades.Cliente;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -27,10 +26,12 @@ public class PrincipalClientesController {
     @FXML
     public ScrollPane listaClientes;
 
+    private TableView tableViewClientes = null;
+
     public void setup(Window window) {
         ClienteLogica clienteLogica = new ClienteLogica();
         List<Cliente> clientes = clienteLogica.getAllClientes();
-        TableView build = JavaFXComponent.build(clientes, Cliente.class, true, new TableCallback<Cliente>() {
+        this.tableViewClientes = JavaFXComponent.build(clientes, Cliente.class, true, new TableCallback<Cliente>() {
             @Override
             public void handle(Cliente cliente) {
                 System.out.println("llego una accion");
@@ -42,7 +43,7 @@ public class PrincipalClientesController {
                 return "Detalles";
             }
         });
-        this.listaClientes.setContent(build);
+        this.listaClientes.setContent(tableViewClientes);
     }
 
     public void agregarCliente(ActionEvent actionEvent) throws IOException {
@@ -58,5 +59,17 @@ public class PrincipalClientesController {
         stageFormCliente.setScene(new Scene(rootFormCliente));
         controller.setup(stageFormCliente);
         stageFormCliente.show();
+        stageFormCliente.setOnHidden(windowEvent -> {
+            this.refrescarClientes();
+        });
+    }
+
+    private void refrescarClientes() {
+        ClienteLogica clienteLogica = new ClienteLogica();
+        List<Cliente> clientes = clienteLogica.getAllClientes();
+
+        if (this.tableViewClientes != null) {
+            this.tableViewClientes.setItems(FXCollections.observableList(clientes));
+        }
     }
 }
