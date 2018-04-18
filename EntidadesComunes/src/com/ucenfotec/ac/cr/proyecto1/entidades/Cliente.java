@@ -1,5 +1,9 @@
 package com.ucenfotec.ac.cr.proyecto1.entidades;
 
+import za.co.knonchalant.builder.Ignore;
+
+import java.lang.reflect.Method;
+
 public class Cliente {
     private Integer id; // PK
     private String nombre;
@@ -10,6 +14,7 @@ public class Cliente {
     private String direccionExacta;
     private String logo;
     private String telefono;
+
     public Integer getId() {
         return id;
     }
@@ -74,6 +79,7 @@ public class Cliente {
         this.logo = logo;
     }
 
+    @Ignore
     public String getTelefono() {
         return telefono;
     }
